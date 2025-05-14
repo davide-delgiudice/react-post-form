@@ -17,25 +17,29 @@ function PostForm() {
           <form className='border rounded bg-light p-3'>
             <div className='row g-4'>
               <div className="col-12">
+                <label htmlFor="" className='control-label'>Nome Autore</label>
                 <input 
                   type="text" 
-                  placeholder='Autore'
+                  placeholder='Inserisci autore...'
                   className='form-control'
                   value=""
                 />
               </div>
               <div className="col-12">
+                <label htmlFor="" className='control-label'>Titolo Post</label>
                 <input 
                   type="text" 
-                  placeholder='Titolo'
+                  placeholder='Inserisci il titolo del post...'
                   className='form-control'
                   value=""  
                 />
               </div>
               <div className='col-12'>
+                <label htmlFor="" className='control-label'>Testo Post</label>
                 <textarea 
                   name="" 
                   id=""
+                  placeholder='Inserisci il contenuto del post...'
                   className='form-control'
                   value=""
                 >
