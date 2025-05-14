@@ -4,6 +4,7 @@ import { useState } from 'react'
 
 function PostForm() {
 
+  // variabile di stato che è un oggetto per gestire la form
   const [formPost, setFormPost] = useState({
     author: "",
     title: "",
@@ -16,50 +17,62 @@ function PostForm() {
         <div className="col-12">
           <form className='border rounded bg-light p-3'>
             <div className='row g-4'>
+              {/* nome autore */}
               <div className="col-12">
                 <label htmlFor="" className='control-label'>Nome Autore</label>
                 <input 
-                  type="text" 
+                  type="text"
+                  name='autore'
+                  id='autore'
                   placeholder='Inserisci autore...'
                   className='form-control'
-                  value=""
+                  value={formPost.author}
                 />
               </div>
+              {/* titolo post */}
               <div className="col-12">
                 <label htmlFor="" className='control-label'>Titolo Post</label>
                 <input 
-                  type="text" 
+                  type="text"
+                  name='title'
+                  id='title'
                   placeholder='Inserisci il titolo del post...'
                   className='form-control'
-                  value=""  
+                  value={formPost.title}
                 />
               </div>
+              {/* testo post */}
               <div className='col-12'>
                 <label htmlFor="" className='control-label'>Testo Post</label>
                 <textarea 
-                  name="" 
-                  id=""
+                  name="body" 
+                  id="body"
                   placeholder='Inserisci il contenuto del post...'
                   className='form-control'
-                  value=""
+                  value={formPost.body}
                 >
                 </textarea>
               </div>
+              {/* checkbox */}
               <div className="col-12">
                 <div className="form-check">
                   <input 
                     type="checkbox"
-                    name="updates"
-                    id="updates"
-                    checked=""
+                    name="public"
+                    id="public"
+                    checked={formPost.public}
                     className='form-check-input'
                   />
+                  <label htmlFor="" className='form-check-label'>
+                    Spunta la casella se vuoi che il post sia reso pubblico!
+                  </label>
                 </div>
               </div>
-                <div className='col-12'>
-                  <button type="submit" className='btn btn-primary'>
-                    Invia Post
-                  </button>
+              {/* button */}
+              <div className='col-12'>
+                <button type="submit" className='btn btn-primary'>
+                  Invia Post
+                </button>
               </div>
             </div>
           </form>
