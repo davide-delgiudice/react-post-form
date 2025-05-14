@@ -12,6 +12,19 @@ function PostForm() {
     public: false,
   });
 
+  // funzione per gestire il cambiamento dei campi input
+  const handleChange = (e) => {
+    // destrutturazione del target per recuperare specifiche proprietà
+    // const { name, value, type, checked } = e.target;
+
+    // imposto la variabile di stato richiamando setFormData
+    setFormPost({
+      ...formPost,
+      [e.target.name]:
+        e.target.type === "checkbox" ? e.target.checked : e.target.value,
+    });
+  };
+
   return (
     <div className="row">
         <div className="col-12">
@@ -19,19 +32,20 @@ function PostForm() {
             <div className='row g-4'>
               {/* nome autore */}
               <div className="col-12">
-                <label htmlFor="" className='control-label'>Nome Autore</label>
+                <label htmlFor="author" className='control-label'>Nome Autore</label>
                 <input 
                   type="text"
-                  name='autore'
-                  id='autore'
+                  name='author'
+                  id='author'
                   placeholder='Inserisci autore...'
                   className='form-control'
                   value={formPost.author}
+                  onChange={handleChange}
                 />
               </div>
               {/* titolo post */}
               <div className="col-12">
-                <label htmlFor="" className='control-label'>Titolo Post</label>
+                <label htmlFor="title" className='control-label'>Titolo Post</label>
                 <input 
                   type="text"
                   name='title'
@@ -39,17 +53,19 @@ function PostForm() {
                   placeholder='Inserisci il titolo del post...'
                   className='form-control'
                   value={formPost.title}
+                  onChange={handleChange}
                 />
               </div>
               {/* testo post */}
               <div className='col-12'>
-                <label htmlFor="" className='control-label'>Testo Post</label>
+                <label htmlFor="body" className='control-label'>Testo Post</label>
                 <textarea 
                   name="body" 
                   id="body"
                   placeholder='Inserisci il contenuto del post...'
                   className='form-control'
                   value={formPost.body}
+                  onChange={handleChange}
                 >
                 </textarea>
               </div>
@@ -62,8 +78,9 @@ function PostForm() {
                     id="public"
                     checked={formPost.public}
                     className='form-check-input'
+                    onChange={handleChange}
                   />
-                  <label htmlFor="" className='form-check-label'>
+                  <label htmlFor="public" className='form-check-label'>
                     Spunta la casella se vuoi che il post sia reso pubblico!
                   </label>
                 </div>
