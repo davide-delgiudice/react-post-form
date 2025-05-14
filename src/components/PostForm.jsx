@@ -25,10 +25,17 @@ function PostForm() {
     });
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios.post("https://67c5b4f3351c081993fb1ab6.mockapi.io/api/posts", formPost).then((resp) => {
+      console.log(resp.data);
+    });
+  };
+
   return (
     <div className="row">
         <div className="col-12">
-          <form className='border rounded bg-light p-3'>
+          <form onSubmit={handleSubmit} className='border rounded bg-light p-3'>
             <div className='row g-4'>
               {/* nome autore */}
               <div className="col-12">
