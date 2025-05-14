@@ -1,6 +1,16 @@
 import React from 'react'
+import axios from 'axios'
+import { useState } from 'react'
 
 function PostForm() {
+
+  const [formPost, setFormPost] = useState({
+    author: "",
+    title: "",
+    body: "",
+    public: false,
+  });
+
   return (
     <div className="row">
         <div className="col-12">

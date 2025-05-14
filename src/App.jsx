@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import PostForm from './components/PostForm';
 
 function App() {
